@@ -1,5 +1,5 @@
-resource "aws_security_group" "testbox-elb-sg" {
-  name = "testbox-elb-sg"
+resource "aws_security_group" "basic-server-elb-sg" {
+  name = "basic-server-elb-sg"
 
   egress {
     from_port = 0
@@ -16,8 +16,8 @@ resource "aws_security_group" "testbox-elb-sg" {
   }
 }
 
-resource "aws_security_group" "testbox-sg" {
-  name = "terraform-testbox-sg"
+resource "aws_security_group" "basic-server-sg" {
+  name = "basic-server-sg"
   ingress {
     from_port = "${var.server_port}"
     to_port = "${var.server_port}"

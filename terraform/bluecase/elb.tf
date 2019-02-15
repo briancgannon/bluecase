@@ -1,7 +1,7 @@
-resource "aws_elb" "testbox-elb" {
-  name = "testbox-elb"
+resource "aws_elb" "basic-server-elb" {
+  name = "basic-server-elb"
   availability_zones = ["${data.aws_availability_zones.all.names}"]
-  security_groups = ["${aws_security_group.testbox-elb-sg.id}"]
+  security_groups = ["${aws_security_group.basic-server-elb-sg.id}"]
 
   listener {
     lb_port = 80

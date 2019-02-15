@@ -4,5 +4,4 @@ module "sandbox" {
   basic_server_ami   = "ami-0f65671a86f061fcd"
   asg_min_count      = 2
   asg_max_count      = 3
-  availability_zones = ["us-east-1a", "us-east-1b"]
 }

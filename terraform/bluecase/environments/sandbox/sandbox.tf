@@ -1,7 +1,5 @@
-provider "aws" {
-  shared_credentials_file = "/Users/bgannon/.aws/credentials"
-  profile                 = "bluecase"
-  region                  = "us-east-2"
+module "bluecase" {
+  source = "../../modules/"
 }
 
 data "aws_availability_zones" "all" {}
@@ -38,7 +36,7 @@ resource "aws_autoscaling_group" "testbox-asg" {
   load_balancers = ["${aws_elb.testbox-elb.name}"]
   health_check_type = "ELB"
 
-  min_size = 2
+  min_size = 0
   max_size = 10
   tag {
     key = "Name"
@@ -98,4 +96,36 @@ resource "aws_security_group" "testbox-sg" {
 
 output "elb_dns_name" {
   value = "${aws_elb.testbox-elb.dns_name}"
+}
+
+resource "aws_kms_key" "bluecase-s3-kms-key" {
+  description             = "This key is used to encrypt bucket objects"
+  deletion_window_in_days = 10
+}
+
+
+resource "aws_s3_bucket" "bluecase-terraform-state-bucket" {
+  bucket = "bluecase-terraform-state"
+  region = "us-east"
+
+  versioning {
+    enabled = true
+  }
+
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        kms_master_key_id = "${aws_kms_key.bluecase-s3-kms-key.arn}"  
+        sse_algorithm     = "aws:kms"
+      }
+    }
+  } 
+
+  lifecycle {
+      prevent_destroy = true
+    }
+
+  tags {
+      Name = "bluecase-terraform-state-bucket"
+    }
 }

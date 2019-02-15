@@ -1,5 +1,5 @@
 module "bluecase" {
-  source = "../../modules/"
+  source = "../../modules/provider"
 }
 
 data "aws_availability_zones" "all" {}
@@ -106,7 +106,7 @@ resource "aws_kms_key" "bluecase-s3-kms-key" {
 
 resource "aws_s3_bucket" "bluecase-terraform-state-bucket" {
   bucket = "bluecase-terraform-state"
-  region = "us-east"
+  region = "us-east-2"
 
   versioning {
     enabled = true

@@ -83,10 +83,6 @@ resource "aws_security_group" "testbox-sg" {
   }
 }
 
-output "elb_dns_name" {
-  value = "${aws_elb.testbox-elb.dns_name}"
-}
-
 resource "aws_kms_key" "bluecase-s3-kms-key" {
   description             = "This key is used to encrypt bucket objects"
   deletion_window_in_days = 10

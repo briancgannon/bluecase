@@ -1,4 +1,4 @@
-esource "aws_launch_configuration" "basic-server-lc" {
+resource "aws_launch_configuration" "basic-server-lc" {
   image_id = "${var.basic_server_ami}"
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.basic-server-sg.id}"] 

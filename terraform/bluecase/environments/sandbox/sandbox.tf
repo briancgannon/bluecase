@@ -1,19 +1,8 @@
 module "bluecase" {
-  source = "../../modules/provider"
+  source = "../../modules"
 }
 
 data "aws_availability_zones" "all" {}
-
-
-variable "ec2_testbox_ami" {
-  type = "string"
-  default = "ami-0f65671a86f061fcd"
-}
-
-variable "server_port" {
-  description = "The port the server will use for HTTP requests"
-  default = 8080
-}
 
 resource "aws_launch_configuration" "testbox-lc" {
   image_id = "${var.ec2_testbox_ami}"

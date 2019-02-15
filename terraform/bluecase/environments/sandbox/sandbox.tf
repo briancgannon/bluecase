@@ -17,6 +17,7 @@ variable "server_port" {
 resource "aws_instance" "testbox" {
   ami = "${var.ec2_testbox_ami}"
   instance_type = "t2.micro"
+  vpc_security_group_ids = ["${aws_security_group.testbox-sg.id}"]
 
   user_data = <<-EOF
               #!/bin/bash
@@ -40,4 +41,6 @@ resource "aws_security_group" "testbox-sg" {
   }
 }
 
-
+output "public_ip" {
+  value = "${aws_instance.testbox.public_ip}"
+}

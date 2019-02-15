@@ -1,4 +1,5 @@
 resource "aws_launch_configuration" "basic-server-lc" {
+  name_prefix = "bluecase-basic-server-"
   image_id = "${var.basic_server_ami}"
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.basic-server-sg.id}"] 

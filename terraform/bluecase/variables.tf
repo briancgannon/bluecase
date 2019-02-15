@@ -23,7 +23,3 @@ variable "asg_max_count" {
   description = "Maximum count for ASG instances"
   default = 3
 }
-
-variable "availability_zones" {
-  default = ["${data.aws_availability_zones.all.names}"]
-}

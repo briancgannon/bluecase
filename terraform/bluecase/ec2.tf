@@ -1,5 +1,5 @@
 esource "aws_launch_configuration" "testbox-lc" {
-  image_id = "${var.ec2_testbox_ami}"
+  image_id = "${var.ubuntu18_ami}"
   instance_type = "t2.micro"
   security_groups = ["${aws_security_group.testbox-sg.id}"] 
   user_data = <<-EOF
@@ -19,8 +19,8 @@ resource "aws_autoscaling_group" "testbox-asg" {
   load_balancers = ["${aws_elb.testbox-elb.name}"]
   health_check_type = "ELB"
 
-  min_size = 2
-  max_size = 10
+  min_size = "${var.asg_min_count}" 
+  max_size = "${var.asg_max_count}"
   tag {
     key = "Name"
     value = "testbox-asg"

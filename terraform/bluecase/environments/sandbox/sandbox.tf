@@ -1,4 +1,4 @@
-module "bluecase" {
+module "main" {
   source = "../../modules"
 }
 

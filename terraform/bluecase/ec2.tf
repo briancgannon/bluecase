@@ -14,7 +14,7 @@ esource "aws_launch_configuration" "testbox-lc" {
 
 resource "aws_autoscaling_group" "testbox-asg" {
   launch_configuration = "${aws_launch_configuration.testbox-lc.id}"
-  availability_zones = ["${var.availability_zones}"]
+  availability_zones = ["${data.aws_availability_zones.all.names}"]
 
   load_balancers = ["${aws_elb.testbox-elb.name}"]
   health_check_type = "ELB"

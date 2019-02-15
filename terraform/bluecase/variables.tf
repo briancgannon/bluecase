@@ -14,11 +14,6 @@ variable "server_port" {
   default = 8080
 }
 
-variable "environment" {
-  type = "string"
-  default = "sandbox"
-}
-
 variable "asg_min_count" {
   description = "Minimum count for ASG instances"
   default = 1

@@ -1,6 +1,6 @@
 resource "aws_elb" "testbox-elb" {
   name = "testbox-elb"
-  availability_zones = ["${var.availability_zones}"]
+  availability_zones = ["${data.aws_availability_zones.all.names}"]
   security_groups = ["${aws_security_group.testbox-elb-sg.id}"]
 
   listener {

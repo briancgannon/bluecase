@@ -16,6 +16,18 @@ variable asg_instance_max_count {
   default     = 0
 }
 
+variable "database_engine" {
+  description = "Database engine family."
+  type        = "string"
+  default     = "Postgresql"
+}
+
+variable "database_engine_version" {
+  description = "Database engine version"
+  type        = "string"
+  default     = "10.3"
+
+
 variable "database_allocated_storage" {
   description = "Storage size for RDS instances."
   type        = "string"

@@ -4,19 +4,31 @@ variable "env_name" {
   default     = "sandbox"  
 }
 
-variable "DBAllocateStorage" {
+variable asg_instance_min_count {
+  description = "Minimum number of EC2 instances in the AutoScale Group."
+  type        = "string"
+  default     = 0
+}
+
+variable asg_instance_max_count {
+  description = "Maximum number of EC2 instances in the AutoScale Group."
+  type        = "string"
+  default     = 0
+}
+
+variable "database_allocated_storage" {
   description = "Storage size for RDS instances."
   type        = "string"
   default     = 250
 }
 
-variable "DBName" {
+variable "database_name" {
   description = "Database name."
   type        = "string"
   default     = ""
 }
 
-variable "DBSnapshotName" {
+variable "database_snapshot_name" {
   description = "Database snapshot name."
   type        = "string"
   default     = ""

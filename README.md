@@ -1,4 +1,4 @@
 # bluecase
- Terraform DevOps sandbox development repo. 
+Personal repo for Terraform & AWS free-tier POC developement.
 
 

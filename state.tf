@@ -18,10 +18,6 @@ variable "environments" {
 resource "aws_s3_bucket" "state_bucket" {
   count         = "${length(var.environments)}"
   bucket_prefix = "terraform-state-${element(var.environments, count.index)}-"
-
-  versioning {
-    enabled = true
-  }
 }
 
 resource "aws_dynamodb_table" "state_table" {

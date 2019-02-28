@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "bluecase-terraform-state" {
-   bucket_prefix = "bluecase-${var.env-name}-terraform-state"
+resource "aws_s3_bucket" "bluecase-bucket" {
+   bucket_prefix = "bluecase-${var.env_name}-"
    acl           = "private"
    
    versioning {
@@ -11,6 +11,6 @@ resource "aws_s3_bucket" "bluecase-terraform-state" {
     }
 
     tags {
-      Name = "bluecase-terraform-state"
+      Name = "bluecase-${var.env_name}"
     }
 }

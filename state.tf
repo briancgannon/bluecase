@@ -6,7 +6,6 @@ provider "aws" {
 
 variable "environments" {
   default = [
-    "production",
     "sandbox",
   ]
 }
@@ -38,4 +37,10 @@ resource "aws_dynamodb_table" "state_table" {
   }
 }
 
+output "terraform_state_bucket" {
+  value = "${aws_s3_bucket.state_bucket.*.id}"
+}
 
+output "terraform_state_dynamodb" {
+  value = "${aws_dynamodb_table.state_table.*.id}"
+}

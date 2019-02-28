@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "terraform-state-sandbox-"
+    bucket = "terraform-state-sandbox-20190228142955887100000001"
     key    = "sandbox/terraform.tfstate"
     encrypt = true
     region  = "us-east-2"

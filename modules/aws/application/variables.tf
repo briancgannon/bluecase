@@ -45,6 +45,3 @@ variable "database_snapshot_name" {
   type        = "string"
   default     = ""
 }
-
-
-

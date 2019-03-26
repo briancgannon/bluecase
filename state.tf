@@ -1,7 +1,7 @@
 # Configs for resources used for Terraform state management.
 
 provider "aws" {
-  region = "us-east-2"
+  region = "us-east-1"
 }
 
 variable "environments" {

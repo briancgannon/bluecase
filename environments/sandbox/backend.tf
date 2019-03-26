@@ -3,7 +3,7 @@ terraform {
     bucket = "terraform-state-sandbox-"
     key    = "sandbox/terraform.tfstate"
     encrypt = true
-    region  = "us-east-2"
+    region  = "us-east-1"
     dynamodb_table = "terraform-state-sandbox"
   }
 

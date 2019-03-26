@@ -26,7 +26,7 @@ variable "database_engine_version" {
   description = "Database engine version"
   type        = "string"
   default     = "10.3"
-
+}
 
 variable "database_allocated_storage" {
   description = "Storage size for RDS instances."
@@ -45,6 +45,3 @@ variable "database_snapshot_name" {
   type        = "string"
   default     = ""
 }
-
-
-
